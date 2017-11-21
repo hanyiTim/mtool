@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bin":{
-    "mt":"./bin/index.js"
+  "bin": {
+    "mt": "./bin/mt.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,8 @@
   "homepage": "https://github.com/hanyiTim/mtool#readme",
   "devDependencies": {
     "chalk": "^2.3.0",
-    "commander": "^2.11.0"
+    "commander": "^2.11.0",
+    "csv": "^2.0.0",
+    "inquirer": "^4.0.0"
   }
 }
