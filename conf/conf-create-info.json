@@ -1,0 +1,22 @@
+[
+    {
+        "type":"input",
+        "name":"projectName",
+        "message":"项目名称"
+    },
+    {
+        "type":"list",
+        "name":"projectType",
+        "message":"项目类型",
+        "choices":[
+            "reactjs_v1",
+            "reactjs_v2",
+            "pwa_v1"
+        ]
+    },
+    {
+        "type":"input",
+        "name":"projectPath",
+        "message":"项目路径"
+    }
+]
