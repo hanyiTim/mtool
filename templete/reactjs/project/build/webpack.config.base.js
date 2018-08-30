@@ -4,41 +4,55 @@ var webpack = require('webpack'),
     CleanWebpackPlugin = require('clean-webpack-plugin'),
     path = require("path");
 
-
+var hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
 var definePlugin = new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
 });
 var uglifyPlugin = new UglifyJsPlugin();
 var cleanWebpackPlugin = new CleanWebpackPlugin(
-    ['dist_prod/static'],{
+    ['dist','dist_prod'],{
         root:__dirname,
         verbose:  true,
         dry:false
     }
 );
-var isProduction = (process.env.NODE_ENV === 'production');
-
-
 var config = {
-    entry:{
-        "index":"./page/index/index.jsx"
-    },
+    entry:{},
     output:{
-        path:isProduction ? path.resolve(__dirname,"dist_prod/static") : path.resolve(__dirname,'dist/static'),
-        filename:isProduction ? "[name].[hash:5].js":"[name].js"
+        path:path.resolve(__dirname,'dist'),
+        filename:"[name].js",
+        publicPath:"/",
     },
+    devtool: 'inline-source-map',
     module:{
         rules:[
             {
                 test:/\.(jsx|js)$/,
                 exclude: /(node_modules|bower_components)/,
-                use:{
-                    loader:"babel-loader",
-                    options:{
-                        presets:['es2015', 'stage-0', 'react'],
-                        plugins: ['babel-plugin-transform-runtime']
+                use:[
+                    {
+                        loader:"babel-loader",
+                        options:{
+                            presets:['es2015', 'stage-0', 'react'],
+                            plugins: ['babel-plugin-transform-runtime']
+                        }
+                    },
+                    {
+                        loader:"webpack-px-to-rem",
+                        options:{
+                            // 这个配置是可选的 
+                            query:{
+                                // 1rem=npx 默认为 10 
+                                basePx:10,
+                                // 只会转换大于min的px 默认为0 
+                                // 因为很小的px（比如border的1px）转换为rem后在很小的设备上结果会小于1px，有的设备就会不显示 
+                                min:1,
+                                // 转换后的rem值保留的小数点后位数 默认为3 
+                                floatWidth:3
+                            }
+                        }
                     }
-                }
+                ]
             },
             {
                 test:/\.sass$/,
@@ -117,20 +131,8 @@ var config = {
         ]
     },
     plugins:[
-        new webpack.HotModuleReplacementPlugin(),
-        new HtmlWebpackPlugin({
-            title:"首页",
-            filename:"../index.html",
-            template:"./page/index/index.html",
-            chunks:[
-                "index"
-            ]
-        })
+        cleanWebpackPlugin,
+        new webpack.HotModuleReplacementPlugin()
     ]
-}
-
-if(isProduction){
-    config.plugins.push(uglifyPlugin);
-    config.plugins.push(cleanWebpackPlugin);
 }
 module.exports=config;

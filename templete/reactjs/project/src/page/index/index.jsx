@@ -19,6 +19,7 @@ class App extends Component{
         var self = this;
 		return (
             <div>
+				3434
             </div>
 		)
 	}

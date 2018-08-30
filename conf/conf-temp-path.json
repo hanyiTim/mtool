@@ -1,11 +1,5 @@
 {
-    "reactjs_v1":{
-        "project":"templete/reactjs/v1/project"
-    },
-    "reactjs_v2":{
-        "project":"templete/reactjs/v2/project"
-    },
-    "pwa_v1":{
-        "project":"templete/pwa/v1/project"
+    "reactjs":{
+        "project":"templete/reactjs/project"
     }
 }

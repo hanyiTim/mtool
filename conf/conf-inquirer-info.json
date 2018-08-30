@@ -1,0 +1,32 @@
+{
+    "create":[
+        {
+            "type":"input",
+            "name":"projectName",
+            "message":"项目名称"
+        },
+        {
+            "type":"list",
+            "name":"projectType",
+            "message":"项目类型",
+            "choices":[
+                "reactjs"
+            ]
+        },
+        {
+            "type":"input",
+            "name":"projectPath",
+            "message":"项目路径"
+        }
+    ],
+    "init":[
+        {
+            "type":"list",
+            "name":"projectType",
+            "message":"项目类型",
+            "choices":[
+                "reactjs"
+            ]
+        }
+    ]
+}
