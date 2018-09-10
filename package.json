@@ -2,12 +2,13 @@
   "name": "mtool",
   "version": "0.0.1",
   "description": "tool groud",
-  "main": "index.js",
+  "main": "./bin/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "add": "node ./build/add.js"
   },
-  "bin":{
-    "mt":"./bin/index.js"
+  "bin": {
+    "mt": "./bin/mt.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,12 @@
   "devDependencies": {
     "chalk": "^2.3.0",
     "commander": "^2.11.0"
+  },
+  "dependencies": {
+    "csv": "^3.1.0",
+    "inquirer": "^6.2.0",
+    "lodash": "^4.17.10",
+    "minimatch": "^3.0.4",
+    "node-promise": "^0.5.13"
   }
 }
