@@ -1,18 +1,17 @@
 {
-  "name": "mtool",
+  "name": "lesstool",
   "version": "0.0.1",
   "description": "tool groud",
   "main": "./bin/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "add": "node ./build/add.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "mt": "./bin/mt.js"
+    "lt": "./bin/lt.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hanyiTim/mtool.git"
+    "url": "git+https://github.com/hanyitim/lesstool.git"
   },
   "keywords": [
     "tool"
@@ -20,12 +19,12 @@
   "author": "yogo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hanyiTim/mtool/issues"
+    "url": "https://github.com/hanyiTim/lesstool/issues"
   },
-  "homepage": "https://github.com/hanyiTim/mtool#readme",
+  "homepage": "https://github.com/hanyiTim/lesstool#readme",
   "devDependencies": {
     "chalk": "^2.3.0",
-    "commander": "^2.11.0"
+    "commander": "^5.1.0"
   },
   "dependencies": {
     "csv": "^3.1.0",
